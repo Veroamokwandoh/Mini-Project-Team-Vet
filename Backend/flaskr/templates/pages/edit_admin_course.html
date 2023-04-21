@@ -1,0 +1,25 @@
+{% extends "pages/layout.html" %}
+{% block title %}Edit Lecturer Profile{% endblock %}
+{% block body %}
+<h2>Edit Profile</h2>
+  <form action="/edit_adcourse/{{course.id}}" method="POST">
+      <label for="name">Course Name:</label>
+      <input type="text" id="name" name="name" value="{{ course.name }}"><br>
+      <label for="code">Course Code:</label>
+      <input type="text" id="code" name="code" value="{{ course.code }}"><br>
+      <label for="lecturer_id">Lecturer:</label>
+      <select name="lecturer_id">
+        {% for lecturer in lecturers %}
+          <option value="{{ lecturer.id }}">{{ lecturer.name }}</option>
+        {% endfor %}
+      </select><br>
+      <label for="student_id">Students:</label>
+      <select name="student_id" multiple>
+        {% for student in students %}
+          <option value="{{ student.id }}">{{ student.name }}</option>
+        {% endfor %}
+      </select><br>
+      <button type="submit">Add Course</button>
+    </form>
+{% endblock %}
+

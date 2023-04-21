@@ -1,0 +1,33 @@
+<!-- lecturer_dashboard.html -->
+<!-- student_dashboard.html -->
+{% block body %}
+<div style="background-color: blue; height: 50px; padding: 10px;">
+  <h2>LECTURER DASHBOARD</h2>
+</div>
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for category, message in messages %}
+      <a  href="/view_lecturer" style="font-size: 1.5rem; background: #000; color: red; text-decoration: none; margin-left: 30%;">X {{ message }}, {{category}}</a> 
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lecturer Dashboard</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='student_dashboard.css') }}"> 
+    </head>
+    <body>
+        <header>
+          <nav>
+            <ul>
+              <li><a href="#">Edit Profile</a></li>
+              <li><a href="/view_generate_attendance/{{lecturer.id}}">Generate Attendance</a></li>
+              <li><a href="#">Logout</a></li>
+            </ul>
+          </nav>
+        </header>
+</body>
+</html>
+{% endblock %}

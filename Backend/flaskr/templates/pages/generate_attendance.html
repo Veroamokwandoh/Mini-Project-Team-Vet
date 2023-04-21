@@ -1,0 +1,34 @@
+{% block content %}
+<link rel="stylesheet" type="text/css" href="static/student_dashboard.css">
+<h2>Generate Attendance</h2>
+    <form action="/generate_attendance" method="post">
+        <label for="course_id">Course Name:</label>
+        <select name="course_id">
+            {% for course in courses %}
+                <option value="{{ course.id }}">{{ course.name }}</option>
+            {% endfor %}
+        </select><br>
+        <label for="course_id">Course Code:</label>
+        <select name="course.lecturer_id">
+            {% for course in courses %}
+                <option value="{{ course.lecturer_id }}">{{ course.code }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="date">Date:</label>
+        <input type="date" name="date" value="{{ today }}" required><br>
+
+        <label for="time">Time:</label>
+        <input type="time" name="time" value="{{ current_time }}" required><br>
+
+        <label for="timeframe">Timeframe:</label>
+        <select name="timeframe">
+            <option value="15">15 Minutes</option>
+            <option value="30">30 Minutes</option>
+            <option value="45">45 Minutes</option>
+            <option value="60">60 Minutes</option>
+        </select><br>
+
+        <button type="submit">Generate Attendance</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% block content %}
+<h2>Edit Lecturer</h2>
+
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for lecturer in lecturers %}
+              <tr>
+                <td>{{ lecturer.id }}</td>
+                <td>{{ lecturer.name }}</td>
+                <td>{{ lecturer.email }}</td>
+                <td>
+                  <a href="/view_edit_adlecturer/{{lecturer.id}}" class="btn btn-primary btn-sm">Update</a>
+                  <a href="/remove_lecturer/{{lecturer.id}}" class="btn btn-danger btn-sm">Remove</a>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+
+        <a href="/view_add_lecturer" class="btn btn-success">Add lecturer</a>
+
+      </main>
+    </div>
+  </div>
+{% endblock %}

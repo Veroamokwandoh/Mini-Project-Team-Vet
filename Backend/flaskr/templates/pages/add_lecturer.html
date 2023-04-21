@@ -1,0 +1,27 @@
+{% block body %}
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for category, message in messages %}
+      <a  href="#" style="font-size: 1.5rem; background: #000; color: red; text-decoration: none; margin-left: 20%;">X {{ message }}, {{category}}</a> 
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='add_student.css') }}"> 
+    <h1 style="text-align: center;">ADD LECTURER</h1>
+    <form action="{{ url_for('add_lecturer') }}" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <label for="confirm_password">Confirm Password:</label>
+        <input type="password" id="confirm_password" name="confirm_password" required>
+        <br>
+        <input type="submit" value="Add Lecturer">
+    </form>
+{% endblock %}

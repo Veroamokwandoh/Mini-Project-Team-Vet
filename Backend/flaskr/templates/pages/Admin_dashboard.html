@@ -1,0 +1,55 @@
+{% block content %}
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for category, message in messages %}
+      <a  href="/view_admin" style="font-size: 1.5rem; background: #000; color: red; text-decoration: none; margin-left: 30%;">X {{ message }}, {{category}}</a> 
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+  <div class="container-fluid">
+    <div class="row">
+      <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+        <div class="sidebar-sticky">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Edit User</a>
+              <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link" href="/view_admin_student">Edit Student</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/view_admin_lecturer">Edit Lecturer</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/view_admin_ad">Edit Admin</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Courses</a>
+              <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link" href="/view_add_course">Add Course</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Edit Course</a>
+                </li>
+              </u3l>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+          <h1 class="h2">Admin Dashboard</h1>
+          <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group mr-2">
+              <button class="btn btn-sm btn-outline-secondary">Export</button>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+{% endblock %}

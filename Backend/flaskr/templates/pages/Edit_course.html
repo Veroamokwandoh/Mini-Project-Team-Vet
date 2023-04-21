@@ -1,0 +1,32 @@
+{% block content %}
+<h2>Edit Course</h2>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Code</th>
+      <th>Lecturer Name</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for course in courses %}
+      <tr>
+        <td>{{ course.id }}</td>
+        <td>{{ course.name }}</td>
+        <td>{{ course.code }}</td>
+        <td>{{ course.lecturer_id }}</td>
+        <td>
+          <a href="/view_edit_adcourse/{{course.id}}" class="btn btn-primary btn-sm">Update</a>
+          <a href="/remove_course/{{course.id}}" class="btn btn-danger btn-sm">Remove</a>
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</main>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,74 @@
+/* Student Dashboard Styles */
+nav {
+    background-color: blue;
+    color: white;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 30%;
+    float: left;
+    height: 100%;
+  }
+  
+  nav li {
+    margin: 1px 0;
+    border: 3px solid white;
+    padding: 10px;
+  }
+  
+  nav li:last-child {
+    margin-right: 0;
+  }
+  
+  nav a {
+    display: block;
+    line-height: 3em;
+    width: 100%;
+    text-decoration: none;
+    color: black;
+  }
+  
+  h1 {
+    font-size: 36px;
+    margin-top: 50px;
+  }
+  
+  h2 {
+    font-size: 24px;
+    margin-top: 30px;
+  }
+  
+  form {
+    margin-top: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  input[type="submit"] {
+    margin-top: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  select, input[type="date"], input[type="time"], input[type="text"], input[type="email"], input[type="password"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #555;
+  }
+  

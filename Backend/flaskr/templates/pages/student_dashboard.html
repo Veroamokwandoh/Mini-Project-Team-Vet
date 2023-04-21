@@ -1,0 +1,37 @@
+<!-- student_dashboard.html -->
+{% block body %}
+<div style="background-color: blue; height: 50px; padding: 10px;">
+  <h2>STUDENT DASHBOARD</h2>
+</div>
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for category, message in messages %}
+      <a  href="/view_student" style="font-size: 1.5rem; background: #000; color: red; text-decoration: none; margin-left: 30%;">X {{ message }}, {{category}}</a> 
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='student_dashboard.css') }}"> 
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="/mark_attendance/{{ student.id }}">Mark Attendance</a></li>
+          <li><a href="/view_edit_student/{{ student.id}}">Edit Profile</a></li>
+          <li><a href="#">Logout</a></li>
+        </ul>
+      </nav>
+    </header>
+  </div>
+    <h1>Welcome, {{ student.id }}!</h1>
+    <h1>Welcome!</h1>
+    <h1>Welcome, {{ student.name }}!</h1><br>
+  </body>
+</html>
+{% endblock %}
+

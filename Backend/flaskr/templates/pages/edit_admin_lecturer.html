@@ -1,0 +1,17 @@
+{% extends "pages/layout.html" %}
+{% block title %}Edit Lecturer Profile{% endblock %}
+{% block body %}
+<h2>Edit Profile</h2>
+    <form action="/edit_adlecturer/{{lecturer.id}}" method="POST">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" value="{{ lecturer.name }}">
+      <br>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" value="{{ lecturer.email }}">
+      <br>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+      <br>
+      <input type="submit" value="Save Changes">
+    </form>
+{% endblock %}

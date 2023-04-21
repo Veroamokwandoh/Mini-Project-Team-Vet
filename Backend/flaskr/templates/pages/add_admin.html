@@ -1,0 +1,27 @@
+{% block body %}
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for category, message in messages %}
+      <a  href="#" style="font-size: 1.5rem; background: #000; color: red; text-decoration: none; margin-left: 20%;">X {{ message }}, {{category}}</a> 
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='add_student.css') }}"> 
+    <h1 style="text-align: center;">ADD ADMIN</h1>
+    <form action="/add_admin" method="POST">
+      <label for="full_name">Fullname:</label>
+      <input type="text" id="full_name" name="full_name" required>
+      <br>
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
+      <br>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+      <br>
+      <label for="confirm_password">Confirm Password:</label>
+      <input type="password" id="confirm_password" name="confirm_password" required>
+      <br>
+      <input type="submit" value="Add Admin">
+    </form>
+{% endblock %}

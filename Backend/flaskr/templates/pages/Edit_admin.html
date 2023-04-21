@@ -1,0 +1,33 @@
+{% block content %}
+<h2>Edit Admin</h2>
+
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>FullName</th>
+              <th>Username</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for admin in admins %}
+              <tr>
+                <td>{{ admin.id }}</td>
+                <td>{{ admin.full_name }}</td>
+                <td>{{ admin.username }}</td>
+                <td>
+                  <a href="/view_edit_adadmin/{{admin.id}}" class="btn btn-primary btn-sm">Update</a>
+                  <a href="/remove_admin/{{admin.id}}" class="btn btn-danger btn-sm">Remove</a>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+
+        <a href="/view_add_admin" class="btn btn-success">Add admin</a>
+
+      </main>
+    </div>
+  </div>
+{% endblock %}

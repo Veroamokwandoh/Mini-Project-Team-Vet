@@ -1,0 +1,17 @@
+{% extends "pages/layout.html" %}
+{% block title %}Edit Admin Profile{% endblock %}
+{% block body %}
+<h2>Edit Profile</h2>
+    <form action="/edit_adadmin/{{admin.id}}" method="POST">
+      <label for="name">Fullname:</label>
+      <input type="text" id="full_name" name="full_name" value="{{ admin.full_name}}">
+      <br>
+      <label for="email">Username:</label>
+      <input type="text" id="username" name="username" value="{{ admin.username}}">
+      <br>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+      <br>
+      <input type="submit" value="Save Changes">
+    </form>
+{% endblock %}

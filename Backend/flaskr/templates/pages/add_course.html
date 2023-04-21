@@ -1,0 +1,33 @@
+{% block body %}
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for category, message in messages %}
+      <a  href="#" style="font-size: 1.5rem; background: #000; color: red; text-decoration: none; margin-left: 20%;">X {{ message }}, {{category}}</a> 
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='add_student.css') }}"> 
+    <h2>Add Course</h2>
+    <form action="/add_course" method="POST">
+      <label for="name">Course Name:</label>
+      <input type="text" id="name" name="name" required><br>
+      <label for="code">Course Code:</label>
+      <input type="text" id="code" name="code" required><br>
+      <label for="lecturer_id">Lecturer:</label>
+      <select name="lecturer_id">
+        {% for lecturer in lecturers %}
+          <option value="{{ lecturer.id }}">{{ lecturer.name }}</option>
+        {% endfor %}
+      </select><br>
+      <label for="student_id">Students:</label>
+      <select name="student_id" multiple>
+        {% for student in students %}
+          <option value="{{ student.id }}">{{ student.name }}</option>
+        {% endfor %}
+      </select><br>
+      <button type="submit">Add Course</button>
+    </form>
+{% endblock %}
+
